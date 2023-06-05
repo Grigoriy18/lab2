@@ -1,0 +1,106 @@
+`1)public class Main {
+    public static void main(String[] args) {
+        int n = 60;
+        if (n > 50 && n < 100) {
+            System.out.println("Число " + n + " міститься в проміжку (50; 100)");
+        } else {
+            System.out.println("Число " + n + " не міститься в проміжку (50; 100)");
+        }
+    }
+}
+
+
+2)public class Main {
+    public static void main(String[] args) {
+        int n = 532;
+        int maxDigit = findMaxDigit(n);
+        System.out.println("Найбільша цифра числа " + n + " - " + maxDigit);
+    }
+    
+    public static int findMaxDigit(int number) {
+        int maxDigit = 0;
+        while (number > 0) {
+            int digit = number % 10;
+            if (digit > maxDigit) {
+                maxDigit = digit;
+            }
+            number /= 10;
+        }
+        return maxDigit;
+    }
+}
+
+3)public class Main {
+    public static void main(String[] args) {
+        int currentFloor = 1; // Початковий поверх
+        
+        int desiredFloor = 6; // Бажаний поверх (можна змінити на інший)
+        
+        if (desiredFloor >= 2 && desiredFloor <= 9) {
+            if (desiredFloor == 2) {
+                System.out.println("Кнопка 2-го поверху не працює!");
+                System.out.println("Ліфт доставляє на 3-й поверх");
+                currentFloor = 3;
+            } else if (desiredFloor > currentFloor) {
+                System.out.println("Ви піднялись на " + desiredFloor + " поверх");
+                currentFloor = desiredFloor;
+            } else if (desiredFloor < currentFloor) {
+                System.out.println("Ви спустились на " + desiredFloor + " поверх");
+                currentFloor = desiredFloor;
+            } else {
+                System.out.println("Ви залишаєтесь на " + desiredFloor + " поверсі");
+            }
+        } else {
+            System.out.println("Недопустимий номер поверху");
+        }
+    }
+}
+
+4)import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Виберіть опцію:");
+        System.out.println("1. Погодитись");
+        System.out.println("2. Відмовитись");
+        int choice = scanner.nextInt();
+        
+        switch (choice) {
+            case 1:
+                System.out.println("Введіть вашу відповідь:");
+                String agreeInput = scanner.next();
+                switch (agreeInput.toLowerCase()) {
+                    case "так":
+                    case "ok":
+                    case "yes":
+                    case "y":
+                    case "+":
+                        System.out.println("Я погоджуюсь!");
+                        break;
+                    default:
+                        System.out.println("Некоректна відповідь");
+                        break;
+                }
+                break;
+            case 2:
+                System.out.println("Введіть вашу відповідь:");
+                String rejectInput = scanner.next();
+                switch (rejectInput.toLowerCase()) {
+                    case "ні":
+                    case "no":
+                    case "n":
+                    case "-":
+                        System.out.println("Я відмовляюсь!");
+                        break;
+                    default:
+                        System.out.println("Некоректна відповідь");
+                        break;
+                }
+                break;
+            default:
+                System.out.println("Некоректний вибір опції");
+                break;
+        }
+    }
+}
